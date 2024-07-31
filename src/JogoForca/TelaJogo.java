@@ -220,7 +220,7 @@ public class TelaJogo {
 						label_9.getHeight(),
 						Image.SCALE_DEFAULT));
 				label_9.setIcon(icon);
-				//playMusic();
+				playMusic();
 				
 	}
 
