@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.sound.sampled.AudioInputStream;
@@ -15,10 +17,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 
 public class TelaJogo {
@@ -62,9 +63,25 @@ public class TelaJogo {
 	
 	public void telaPrincipal() {	
 		
-		try {jogo = new JogoDaForca();
-		jogo.iniciar();
-		} catch (Exception e1) {e1.getMessage();}
+//		try {
+//		this.jogo = new JogoDaForca();
+//		this.jogo.iniciar();
+//		} catch (Exception e1) {e1.getMessage();}
+		
+		try {
+	        this.jogo = new JogoDaForca();
+	        this.jogo.iniciar();
+	    } catch (Exception e1) {
+	        e1.printStackTrace(); // Exibe o stack trace no console.
+	        JOptionPane.showMessageDialog(frame, "Erro ao iniciar o jogo: " + e1.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+	        return; // Interrompe a execução do método.
+	    }
+
+	    // Verifica se o jogo foi inicializado corretamente.
+	    if (this.jogo == null) {
+	        JOptionPane.showMessageDialog(frame, "O jogo não foi inicializado corretamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+	        return;
+	    }
 		
 		//adicionando label dicas:
 		label_1 = new JLabel("DICA : É UM(A) " + jogo.getDica());

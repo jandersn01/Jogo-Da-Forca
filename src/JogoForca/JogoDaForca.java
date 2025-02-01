@@ -17,7 +17,8 @@ public class JogoDaForca {
 	private int erros = 0;
 
 	public JogoDaForca() throws Exception {
-		InputStream stream = this.getClass().getResourceAsStream("/jogoForcaDados/Arq.txt");
+		InputStream stream = this.getClass().getResourceAsStream("/JogoForcaDados/Arq.txt");
+//		InputStream stream = JogoDaForca.class.getClassLoader().getResourceAsStream("jogoForcaDados/Arq.txt");
 		if (stream == null)
 			throw new Exception("Arquivo de texto para leitura inexistente");
 		Scanner dados = new Scanner(stream);
@@ -38,7 +39,7 @@ public class JogoDaForca {
 	}
 	
 	public String getDica() {
-		return this.dica_sorteada;
+		return dica_sorteada;
 	}
 	
 	public int getTamanho() {
